@@ -1,11 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="eeeb7ace-b359-47eb-8420-81844621c203" name="Changes" comment="" />
+    <list default="true" id="eeeb7ace-b359-47eb-8420-81844621c203" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/assets/font/Inter-Regular.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/font/Inter-Regular.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/font/Inter-Regular.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/font/Inter-SemiBold.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/font/Inter-SemiBold.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/font/Inter-SemiBold.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/font/Inter.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/images/main_icon.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/images/shopping_cart_icon.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Header/Header.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Header/styles.module.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/UI/IconButton/IconButton.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/UI/IconButton/styles.module.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="CSS File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -23,16 +48,27 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/Users/lamara/WebstormProjects/starwars-shop",
+    "last_opened_file_path": "/Users/lamara/WebstormProjects/starwars-shop/src/components/UI/IconButton",
+    "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.standard": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.standard": "",
     "nodejs_package_manager_path": "npm",
-    "ts.external.directory.path": "/Applications/WebStorm.app/Contents/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external",
+    "ts.external.directory.path": "/Users/lamara/WebstormProjects/starwars-shop/node_modules/typescript/lib",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/components/UI/IconButton" />
+      <recent name="$PROJECT_DIR$/src/assets/font" />
+      <recent name="$PROJECT_DIR$/src/assets/images" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -42,6 +78,7 @@
       <option name="presentableId" value="Default" />
       <updated>1690061310566</updated>
       <workItem from="1690061312522" duration="2366000" />
+      <workItem from="1690064353441" duration="5110000" />
     </task>
     <servers />
   </component>
