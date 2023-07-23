@@ -1,9 +1,6 @@
 import * as React from 'react';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import Typography from '@mui/material/Typography';
-import { CardActionArea } from '@mui/material';
 
 import image from '../../assets/images/image.png'
 import styles from './styles.module.css'
@@ -11,9 +8,13 @@ import styles from './styles.module.css'
 
 export const ActionAreaCard = () => {
   return (
-    <Card className={styles.container}>
+    <Card className={styles.container} sx={{boxShadow: 'none', borderRadius: '6px', transition: '0.3s linear'}}>
       <img src={image} alt='card' className={styles.image}/>
-        <CardContent className={styles.content}>
+
+      <div className={styles.overlay}>
+        <p className={styles.tooltip}>Добавить в корзину</p>
+      </div>
+      <CardContent className={styles.content} sx={{padding: '1rem 0.25rem 1rem 0rem', boxSizing: 'border-box', ":last-child": {paddingBottom: '16px'}}}>
           <p className={styles.title}>
             Название товара
           </p>
