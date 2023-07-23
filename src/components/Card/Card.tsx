@@ -1,27 +1,32 @@
 import * as React from 'react';
 import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-
 import image from '../../assets/images/image.png'
 import styles from './styles.module.css'
+import {Starship} from "../../domain/starships";
+import Grid from "@mui/material/Grid";
 
+interface Props {
+  starship: Starship;
+}
 
-export const ActionAreaCard = () => {
+export const StarshipCard = ({starship}: Props) => {
   return (
-    <Card className={styles.container} sx={{boxShadow: 'none', borderRadius: '6px', transition: '0.3s linear'}}>
-      <img src={image} alt='card' className={styles.image}/>
-
-      <div className={styles.overlay}>
-        <p className={styles.tooltip}>Добавить в корзину</p>
+    <Card className={styles.container} sx={{boxShadow: 'none', borderRadius: '12px', transition: '0.3s linear'}}>
+      <div className={styles.cardImage}>
+        <img src={image} alt='card' className={styles.cardImage__image}/>
+        <div className={styles.cardImage__overlay}>
+          <p className={styles.cardImage__overlayText}>Добавить в корзину</p>
+        </div>
       </div>
-      <CardContent className={styles.content} sx={{padding: '1rem 0.25rem 1rem 0rem', boxSizing: 'border-box', ":last-child": {paddingBottom: '16px'}}}>
-          <p className={styles.title}>
-            Название товара
-          </p>
-          <p className={styles.price}>
-            Цена товара
-          </p>
-        </CardContent>
+
+      <div className={styles.cardWrapper}>
+        <p className={styles.title}>
+          {starship.name}
+        </p>
+        {starship.cost_in_credits && <p className={styles.price}>
+          ₽&nbsp;{new Intl.NumberFormat('ru-RU').format(starship.cost_in_credits)}
+        </p>}
+      </div>
     </Card>
   );
 }
