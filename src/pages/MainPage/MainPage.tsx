@@ -1,4 +1,4 @@
-import {CardsList} from "../../components/CardsList/CardsList";
+import {StarshipCardsList} from "../../components/CardsList/StarshipCardsList";
 import {useDispatch} from "react-redux";
 import React, {useCallback, useEffect} from "react";
 import {Action} from "../../store/starships";
@@ -32,16 +32,13 @@ export const MainPage = () => {
 
   useEffect(() => {
     getStarships();
-    // let timerId = setInterval(loadNewsToState, 60000);
-    // return () => {
-    //   clearInterval(timerId);
-    // };
+
   }, [getStarships]);
 
   return (
     <>
       <Header/>
-      <CardsList></CardsList>
+      <StarshipCardsList></StarshipCardsList>
     </>
   )
 }

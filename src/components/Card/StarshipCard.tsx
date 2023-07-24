@@ -3,20 +3,27 @@ import Card from '@mui/material/Card';
 import image from '../../assets/images/image.png'
 import styles from './styles.module.css'
 import {Starship} from "../../domain/starships";
-import Grid from "@mui/material/Grid";
+import {useDispatch} from "react-redux";
+import {useCallback} from "react";
 
 interface Props {
   starship: Starship;
 }
 
 export const StarshipCard = ({starship}: Props) => {
+  const dispatch = useDispatch()
+
+  const onClickButton = useCallback(() => {
+    dispatch({type: 'StarshipAdded', value: starship} )
+  }, [])
+
   return (
     <Card className={styles.container} sx={{boxShadow: 'none', borderRadius: '12px', transition: '0.3s linear'}}>
       <div className={styles.cardImage}>
         <img src={image} alt='card' className={styles.cardImage__image}/>
-        <div className={styles.cardImage__overlay}>
+        <button className={styles.cardImage__overlay} onClick={onClickButton}>
           <p className={styles.cardImage__overlayText}>Добавить в корзину</p>
-        </div>
+        </button>
       </div>
 
       <div className={styles.cardWrapper}>

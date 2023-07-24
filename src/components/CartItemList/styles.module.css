@@ -1,4 +1,4 @@
-/*todo: сделать mainContainer itemsContainer itemsTitle itemsFinalCost itemsFinalCostTitle константами тк они используются в CardsList*/
+/*todo: сделать mainContainer itemsContainer itemsTitle itemsFinalCost itemsFinalCostTitle константами тк они используются в StarshipCardsList*/
 
 .mainContainer {
     display: flex;

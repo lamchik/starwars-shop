@@ -6,12 +6,12 @@ import {Typography} from "@mui/material";
 import {RootState} from "../../store";
 import {MultipleEntity, Starship} from "../../domain/starships";
 import {DataState} from "../../domain/dataState";
-import {StarshipCard} from "../Card/Card";
+import {StarshipCard} from "../Card/StarshipCard";
 
 import styles from './styles.module.css'
 
 
-export const CardsList = () => {
+export const StarshipCardsList = () => {
 
   const starships = useSelector<RootState, MultipleEntity<Starship> | undefined>(
     (state) => state.starships.starships

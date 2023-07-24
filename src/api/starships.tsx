@@ -4,7 +4,6 @@ export const loadStarships = (): Promise<MultipleEntity<Starship>> => {
   return fetch('https://swapi.dev/api/starships', {
     method: 'GET',
   }).then((res) => {
-    console.log('here', res)
     return res.json();
   }).then((res: MultipleEntity<APIStarship>): MultipleEntity<Starship> => {
     return {

@@ -1,0 +1,21 @@
+.circle{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background-color: #2650BE;
+    position: absolute;
+    top: -5px;
+    right: -7px;
+}
+
+.circleText {
+    font-family: Inter-Reg, serif;
+    font-size: 0.75rem;
+    color: #fff;
+    text-align: center;
+    align-items: center;
+    margin: 0;
+}
