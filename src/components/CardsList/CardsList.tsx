@@ -4,47 +4,14 @@ import CircularProgress from '@mui/material/CircularProgress';
 import {StarshipCard} from "../Card/Card";
 
 import styles from './styles.module.css'
-import {loadStarships} from "../../api/starships";
-import {useCallback, useEffect} from "react";
-import {useDispatch, useSelector} from "react-redux";
-import {Action} from "../../store/starships";
+import {useSelector} from "react-redux";
 import {RootState} from "../../store";
 import {MultipleEntity, Starship} from "../../domain/starships";
 import {DataState} from "../../domain/dataState";
+import {Typography} from "@mui/material";
 
 
 export const CardsList = () => {
-  const dispatch = useDispatch();
-  const dispatchAction = useCallback(
-    (action: Action) => {
-      dispatch(action);
-    },
-    [dispatch]
-  );
-
-
-  const loadStarshipsToState = useCallback(() => {
-    loadStarships()
-      .then((starships) => {
-        dispatchAction({type: "StarshipsLoaded", value: starships});
-      })
-      .catch((err) => {
-        dispatchAction({type: "FailedToLoad", value: err.toString()});
-      });
-  }, [dispatchAction]);
-
-  const getStarships = useCallback(() => {
-    dispatchAction({type: "StarshipsLoading"});
-    loadStarshipsToState();
-  }, [dispatchAction, loadStarshipsToState]);
-
-  useEffect(() => {
-    getStarships();
-    // let timerId = setInterval(loadNewsToState, 60000);
-    // return () => {
-    //   clearInterval(timerId);
-    // };
-  }, [getStarships]);
 
   const starships = useSelector<RootState, MultipleEntity<Starship> | undefined>(
     (state) => state.starships.starships
@@ -56,7 +23,9 @@ export const CardsList = () => {
     (state) => state.starships.error
   );
 
-  console.log(starships)
+  if (dataState === DataState.FAILED) {
+    return <Typography>{error}</Typography>;
+  }
 
   return (
     <Grid container spacing={2} className={styles.container}>

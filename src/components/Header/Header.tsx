@@ -1,21 +1,16 @@
-import {IconButtons} from "../UI/IconButton/IconButton";
-import cartIcon from '../../assets/images/shopping_cart_icon.svg'
-import logoIcon from '../../assets/images/main_icon.svg'
+import * as React from "react";
 
 import styles from './styles.module.css'
+import {Cart} from "../UI/Cart/Cart";
+import {MainLogo} from "../UI/MainLogo/MainLogo";
 
 
 export const Header = () => {
 
   return (
     <div className={styles.header}>
-      <IconButtons icon={logoIcon} alt='logo'/>
-      <IconButtons
-        icon={cartIcon}
-        alt='shopping cart'
-        title={true}
-        className={styles.cartText}
-        text='Корзина'/>
+      <MainLogo/>
+      <Cart/>
     </div>
 
   )

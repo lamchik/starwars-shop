@@ -1,18 +1,27 @@
 import React from 'react';
+import {createBrowserRouter, RouterProvider} from "react-router-dom";
 
 import './App.css';
 import './assets/font/Inter.css'
 
-import {Header} from "./components/Header/Header";
-import {CardsList} from "./components/CardsList/CardsList";
+import {MainPage} from "./pages/MainPage/MainPage";
+import {ShoppingCartPage} from "./pages/ShoppingCartPage/ShoppingCartPage";
 
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <MainPage />,
+  },
+
+  {
+    path: "/cart",
+    element: <ShoppingCartPage />,
+  }
+]);
 
 function App() {
   return (
-    <div className="App">
-      <Header/>
-      <CardsList/>
-    </div>
+    <RouterProvider router={router} />
   );
 }
 
