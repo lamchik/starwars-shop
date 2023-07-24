@@ -1,0 +1,52 @@
+.item {
+    border-radius: 12px;
+    border: 1px solid #E3E7ED;
+    padding: 1.5rem;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+}
+
+.itemImageWrap{
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.itemImage {
+    width: 90px;
+    height: 120px;
+    border-radius: 6px;
+    object-fit: cover;
+}
+
+.itemName {
+    font-family: Inter-Reg, serif;
+    font-size: 1rem;
+    line-height: 1.3rem;
+}
+
+.itemPriceWrap {
+    display: flex;
+    gap: 5rem;
+    align-items: center;
+}
+
+.itemButton {
+    font-family: Inter-Reg, serif;
+    padding: 0;
+    color: #DA1616;
+    text-transform: none;
+    transition: 0.3s linear;
+}
+
+.itemButton:hover {
+    opacity: 0.7;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.itemPrice {
+    font-family: Inter-SemiBold, serif;
+    font-size: 1rem;
+    line-height: 1.3rem;
+}
