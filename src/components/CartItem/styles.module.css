@@ -8,6 +8,7 @@
 }
 
 .itemImageWrap{
+    max-width: 50%;
     display: flex;
     align-items: center;
     gap: 1.5rem;
@@ -21,6 +22,9 @@
 }
 
 .itemName {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
     font-family: Inter-Reg, serif;
     font-size: 1rem;
     line-height: 1.3rem;
@@ -34,15 +38,17 @@
 
 .itemButton {
     font-family: Inter-Reg, serif;
+    font-size: 1rem;
     padding: 0;
     color: #DA1616;
-    text-transform: none;
     transition: 0.3s linear;
+    border: none;
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0);
 }
 
 .itemButton:hover {
     opacity: 0.7;
-    background-color: rgba(0, 0, 0, 0);
 }
 
 .itemPrice {

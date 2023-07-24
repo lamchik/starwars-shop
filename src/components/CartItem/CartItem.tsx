@@ -1,6 +1,3 @@
-import {Button, ThemeProvider, withStyles} from "@mui/material";
-import { createTheme } from '@mui/material/styles';
-
 import ship from '../../assets/images/image.png'
 import styles from './styles.module.css'
 
@@ -16,7 +13,7 @@ export const CartItem = () => {
       </div>
 
       <div className={styles.itemPriceWrap}>
-        <Button color='primary' className={styles.itemButton}>Удалить из корзины</Button>
+        <button className={styles.itemButton}>Удалить из корзины</button>
         <p className={styles.itemPrice}>Цена&nbsp;₽</p>
       </div>
     </div>
