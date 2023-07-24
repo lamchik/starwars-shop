@@ -1,10 +1,44 @@
+/*todo: сделать mainContainer itemsContainer itemsTitle itemsFinalCost itemsFinalCostTitle константами тк они используются в CardsList*/
+
 .mainContainer {
-    width: 100vw;
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
 }
 
 .itemsContainer {
     max-width: 890px;
+}
+
+.itemsTitleContainer {
+    padding: 1.5rem 0;
+    box-sizing: border-box;
+
+}
+
+.itemsTitle {
+    font-family: Inter-Reg, serif;
+    font-size: 1rem;
+    line-height: 1.30rem;
+    color: #575E71;
+    margin: 0;
+}
+
+.itemsFinalCostContainer {
+    padding: 1.875rem 1.5rem;
+}
+
+.itemsFinalCost {
+    margin: 0;
+    font-family: Inter-SemiBold, serif;
+    font-size: 1rem;
+    line-height: 1.3rem;
+}
+
+.itemsFinalCostTitle {
+    margin: 0;
+    font-family: Inter-Reg, serif;
+    font-size: 1rem;
+    line-height: 1.3rem;
 }
