@@ -16,7 +16,7 @@ https://starwars-shop.vercel.app/cart
 * Redux
 * HTML/CSS
 * Material UI
-* API (https://github.com/HackerNews/API)
+* API (https://swapi.dev/)
 
 
 p.s 
