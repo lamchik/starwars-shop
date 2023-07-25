@@ -1,14 +1,8 @@
 /*todo: сделать mainContainer itemsContainer itemsTitle itemsFinalCost itemsFinalCostTitle константами тк они используются в StarshipCardsList*/
 
-.mainContainer {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-}
-
 .itemsContainer {
     max-width: 890px;
+    margin: auto;
 }
 
 .itemsTitleContainer {

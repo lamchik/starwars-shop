@@ -36,8 +36,9 @@ export const StarshipCardsList = () => {
             <Grid container justifyContent="center" xs={12}>
               {starships && <p className={styles.counter}>{starships.count}&nbsp;товаров</p>}
             </Grid>
-            {starships && starships.results.map((starship) => (
-              <Grid xs={12} sm={6} md={4} lg={4} xl={4} key={starship.model} item>
+            {starships && starships.results.map((starship, index) => (
+              //todo: тк в api нет айди key пока поставила index
+              <Grid xs={12} sm={6} md={4} lg={4} xl={4} key={index} item>
                 <StarshipCard starship={starship}/>
               </Grid>
             ))}
