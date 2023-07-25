@@ -14,7 +14,15 @@ export const StarshipCard = ({starship}: Props) => {
   const dispatch = useDispatch()
 
   const onClickButton = useCallback(() => {
-    dispatch({type: 'StarshipAdded', value: starship} )
+    dispatch({type: 'StarshipAdded', value: starship})
+    let starshipFromLC: string | null = localStorage.getItem('starships')
+    let starshipFromLCSerialized: Record<string, number> = starshipFromLC ? JSON.parse(starshipFromLC) : null
+    if(!starshipFromLCSerialized) {
+      starshipFromLCSerialized = {}
+    }
+    const count = starshipFromLCSerialized[starship.url]
+    starshipFromLCSerialized[starship.url] = count ? count+1 : 1
+    localStorage.setItem(`starships`, JSON.stringify(starshipFromLCSerialized))
   }, [])
 
   return (

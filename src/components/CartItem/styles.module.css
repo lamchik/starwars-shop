@@ -55,4 +55,5 @@
     font-family: Inter-SemiBold, serif;
     font-size: 1rem;
     line-height: 1.3rem;
+    overflow: scroll;
 }

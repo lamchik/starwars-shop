@@ -8,9 +8,11 @@ import {RootState} from "../../../store";
 import {Starship} from "../../../domain/starships";
 
 export const Cart = () => {
+
   const items = useSelector<RootState, Starship[]> (
     (state) => state.cart.cart
   )
+
 
   const elem = items.length === 0 ? null : (<Counter count={items.length}/>)
 

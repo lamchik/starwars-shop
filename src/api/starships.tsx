@@ -11,6 +11,17 @@ export const loadStarships = (): Promise<MultipleEntity<Starship>> => {
       results: res.results.map(APIStarshipToStarship),
     }
   })
+}
 
+export const loadStarshipsInCart = (urls: string[]): Promise<Starship[]> => {
+  const promiseArray = urls.map((url) =>
+     fetch(`${url}`, {
+      method: 'GET',
+    })
+  );
+  return Promise.all(promiseArray)
+    .then((allResults) => {
+      return Promise.all(allResults.map((fetchResult) => fetchResult.json()))
+    })
 }
 
