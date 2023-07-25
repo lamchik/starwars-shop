@@ -21,7 +21,12 @@ export const loadStarshipsInCart = (urls: string[]): Promise<Starship[]> => {
   );
   return Promise.all(promiseArray)
     .then((allResults) => {
-      return Promise.all(allResults.map((fetchResult) => fetchResult.json()))
-    })
+      return Promise.all(allResults.map(
+
+        (fetchResult) => {
+          return fetchResult.json()
+        }
+      ))
+    }).then((res: APIStarship[]): Starship[] => {return res.map(APIStarshipToStarship)})
 }
 

@@ -26,7 +26,7 @@ export const CartItemList = () => {
     let cost = 0
     items.forEach((elem) => {
       if(elem.cost_in_credits) {
-        cost = cost + +elem.cost_in_credits
+        cost = cost + elem.cost_in_credits
       }
     })
     return cost

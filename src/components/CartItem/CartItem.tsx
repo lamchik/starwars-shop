@@ -29,6 +29,16 @@ export const CartItem = ({item, itemIndex}: Props) => {
 
   }, [item, dispatch])
 
+  const costs = item.cost_in_credits ? (
+      <p className={styles.itemPrice}>
+        {new Intl.NumberFormat('ru-RU').format(item.cost_in_credits)}&nbsp;₽
+      </p>
+    ) : (
+      <p className={styles.itemPrice}>Бесценно</p>
+  )
+
+  console.log('item.cost_in_credits', typeof item.cost_in_credits)
+
   return (
     <Grid className={styles.item} container xs={12}>
       <Grid className={styles.itemImageWrap} item xs={6}>
@@ -40,10 +50,7 @@ export const CartItem = ({item, itemIndex}: Props) => {
         <Grid xs={10} item display='flex' justifyContent='space-between'>
           <button onClick={handleDeleteButton} className={styles.itemButton}>Удалить из корзины</button>
           {
-            item.cost_in_credits &&
-          <p className={styles.itemPrice}>
-            {new Intl.NumberFormat('ru-RU').format(item.cost_in_credits)}&nbsp;₽
-          </p>
+            costs
           }
         </Grid>
       </Grid>
