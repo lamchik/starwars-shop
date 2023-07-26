@@ -3,12 +3,10 @@ import styles from './styles.module.css'
 import {Starship} from "../../domain/starships";
 import Grid from "@mui/material/Grid";
 
-
 interface Props {
   item: Starship
   onDelete: () => void
 }
-
 
 export const CartItem = ({item, onDelete}: Props) => {
   const costs = item.cost_in_credits ? (

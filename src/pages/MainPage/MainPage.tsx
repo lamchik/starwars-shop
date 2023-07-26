@@ -4,10 +4,6 @@ import React, {useEffect} from "react";
 import {Action, loadStarships, State} from "../../store/starships";
 import {ThunkDispatch} from "redux-thunk";
 import {RootState} from "../../store";
-import {DataState} from "../../domain/dataState";
-import {Typography} from "@mui/material";
-import CircularProgress from "@mui/material/CircularProgress";
-import Grid from "@mui/material/Grid";
 import {Page} from "../../hoc/Page/Page";
 
 export const MainPage = () => {
