@@ -5,10 +5,7 @@ import React, {useEffect} from "react";
 import {State, ActionCart, loadCart, deleteStarshipFromCart} from "../../store/cart";
 import {RootState} from "../../store";
 import {Starship} from "../../domain/starships";
-import {DataState} from "../../domain/dataState";
-import Grid from "@mui/material/Grid";
-import CircularProgress from "@mui/material/CircularProgress";
-import {Typography} from "@mui/material";
+import {Page} from "../../hoc/Page/Page";
 
 export const ShoppingCartPage = () => {
   const dispatch: ThunkDispatch<State, any, ActionCart> = useDispatch()
@@ -26,15 +23,9 @@ export const ShoppingCartPage = () => {
 
   return (
     <>
-      {dataState === DataState.LOADED && starships && (
-        <CartItemList onDelete={handleDeleteButton} starships={starships}/>
-      )}
-      {dataState === DataState.LOADING && (
-        <Grid container justifyContent="center" item xs={12}>
-          <CircularProgress />
-        </Grid>
-      )}
-      {dataState === DataState.FAILED && <Typography>{error}</Typography>}
+      <Page dataState={dataState} error={error}>
+        {starships && <CartItemList onDelete={handleDeleteButton} starships={starships}/>}
+      </Page>
     </>
   )
 }
