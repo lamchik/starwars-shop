@@ -6,7 +6,6 @@ interface Props{
 }
 
 export const Counter = ({count}: Props) => {
-
   return (
     <div className={styles.circle}>
       <p className={styles.circleText}>{count}</p>

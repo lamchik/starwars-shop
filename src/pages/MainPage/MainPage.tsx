@@ -1,44 +1,33 @@
-import {StarshipCardsList} from "../../components/CardsList/StarshipCardsList";
-import {useDispatch} from "react-redux";
-import React, {useCallback, useEffect} from "react";
-import {Action} from "../../store/starships";
-import {loadStarships} from "../../api/starships";
-import {Header} from "../../components/Header/Header";
+import {StarshipCardsList} from "../../components/StarshipCardsList/StarshipCardsList";
+import {useDispatch, useSelector} from "react-redux";
+import React, {useEffect} from "react";
+import {Action, loadStarships, State} from "../../store/starships";
+import {ThunkDispatch} from "redux-thunk";
+import {RootState} from "../../store";
+import {DataState} from "../../domain/dataState";
+import {Typography} from "@mui/material";
+import CircularProgress from "@mui/material/CircularProgress";
+import Grid from "@mui/material/Grid";
 
 export const MainPage = () => {
-  const dispatch = useDispatch();
-  const dispatchAction = useCallback(
-    (action: Action) => {
-      dispatch(action);
-    },
-    [dispatch]
+  const dispatch: ThunkDispatch<State, any, Action> = useDispatch()
+  const {starships, dataState, error} = useSelector<RootState, State>(
+    (state) => state.starships
   );
 
-
-  const loadStarshipsToState = useCallback(() => {
-    loadStarships()
-      .then((starships) => {
-        dispatchAction({type: "StarshipsLoaded", value: starships});
-      })
-      .catch((err) => {
-        dispatchAction({type: "FailedToLoad", value: err.toString()});
-      });
-  }, [dispatchAction]);
-
-  const getStarships = useCallback(() => {
-    dispatchAction({type: "StarshipsLoading"});
-    loadStarshipsToState();
-  }, [dispatchAction, loadStarshipsToState]);
-
   useEffect(() => {
-    getStarships();
-
-  }, [getStarships]);
+    dispatch(loadStarships())
+  }, [dispatch]);
 
   return (
     <>
-      <Header/>
-      <StarshipCardsList></StarshipCardsList>
+      {dataState === DataState.LOADED && starships && <StarshipCardsList starships={starships}/>}
+      {dataState === DataState.LOADING && (
+        <Grid container justifyContent="center" item xs={12}>
+          <CircularProgress />
+        </Grid>
+      )}
+      {dataState === DataState.FAILED && <Typography>{error}</Typography>}
     </>
   )
 }

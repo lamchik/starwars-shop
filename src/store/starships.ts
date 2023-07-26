@@ -1,5 +1,20 @@
 import {MultipleEntity, Starship} from "../domain/starships";
 import {DataState} from "../domain/dataState";
+import {loadStarships as loadStarshipsFromApi} from '../api/starships'
+
+export function loadStarships() {
+  return (dispatch: (action: Action) => void) => {
+    dispatch({type: "StarshipsLoading"})
+
+    loadStarshipsFromApi()
+      .then((starships) => {
+        dispatch({type: "StarshipsLoaded", value: starships});
+      })
+      .catch((err) => {
+        dispatch({type: "FailedToLoad", value: err.toString()});
+      });
+  }
+}
 
 export type State = {
   starships?: MultipleEntity<Starship>;

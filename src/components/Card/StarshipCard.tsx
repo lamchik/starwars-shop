@@ -5,25 +5,19 @@ import styles from './styles.module.css'
 import {Starship} from "../../domain/starships";
 import {useDispatch} from "react-redux";
 import {useCallback} from "react";
+import {ThunkDispatch} from "redux-thunk";
+import {ActionCart, addStarshipToCart, State} from "../../store/cart";
 
 interface Props {
   starship: Starship;
 }
 
 export const StarshipCard = ({starship}: Props) => {
-  const dispatch = useDispatch()
+  const dispatch: ThunkDispatch<State, any, ActionCart> = useDispatch()
 
   const onClickButton = useCallback(() => {
-    dispatch({type: 'StarshipAdded', value: starship})
-    let starshipFromLC: string | null = localStorage.getItem('starships')
-    let starshipFromLCSerialized: Record<string, number> = starshipFromLC ? JSON.parse(starshipFromLC) : null
-    if(!starshipFromLCSerialized) {
-      starshipFromLCSerialized = {}
-    }
-    const count = starshipFromLCSerialized[starship.url]
-    starshipFromLCSerialized[starship.url] = count ? count+1 : 1
-    localStorage.setItem(`starships`, JSON.stringify(starshipFromLCSerialized))
-  }, [])
+    dispatch(addStarshipToCart(starship))
+  }, [starship])
 
   return (
     <Card className={styles.container} sx={{boxShadow: 'none', borderRadius: '12px', transition: '0.3s linear'}}>

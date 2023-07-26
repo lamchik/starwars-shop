@@ -15,7 +15,7 @@ export const loadStarships = (): Promise<MultipleEntity<Starship>> => {
 
 export const loadStarshipsInCart = (urls: string[]): Promise<Starship[]> => {
   const promiseArray = urls.map((url) =>
-     fetch(`${url}`, {
+     fetch(url, {
       method: 'GET',
     })
   );

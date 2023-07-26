@@ -1,60 +1,40 @@
-import {Header} from "../../components/Header/Header";
+import { ThunkDispatch } from "redux-thunk";
 import {CartItemList} from "../../components/CartItemList/CartItemList";
-import {useDispatch} from "react-redux";
-import {useCallback, useEffect} from "react";
-import {loadStarshipsInCart} from "../../api/starships";
-import {ActionCart} from "../../store/cart";
-
+import {useDispatch, useSelector} from "react-redux";
+import React, {useEffect} from "react";
+import {State, ActionCart, loadCart, deleteStarshipFromCart} from "../../store/cart";
+import {RootState} from "../../store";
+import {Starship} from "../../domain/starships";
+import {DataState} from "../../domain/dataState";
+import Grid from "@mui/material/Grid";
+import CircularProgress from "@mui/material/CircularProgress";
+import {Typography} from "@mui/material";
 
 export const ShoppingCartPage = () => {
-  const dispatch = useDispatch()
+  const dispatch: ThunkDispatch<State, any, ActionCart> = useDispatch()
+  const {cart: starships, dataState, error} = useSelector<RootState, State> (
+    (state) => state.cart
+  )
 
-  const dispatchAction = useCallback(
-    (action: ActionCart) => {
-      dispatch(action);
-    },
-    [dispatch]
-  );
-
-  const loadCartToState = useCallback(() => {
-    const shipsFromLS = localStorage.getItem('starships')
-    const shipsFromLSSerialised = shipsFromLS ? JSON.parse(shipsFromLS) : null
-    const arrayOfUrls: string[] = []
-
-    for (let key in shipsFromLSSerialised) {
-      if(shipsFromLSSerialised[key] > 1) {
-        for (let i = 1; i <= shipsFromLSSerialised[key]; i++) {
-          arrayOfUrls.push(key)
-        }
-      }
-      else arrayOfUrls.push(key)
-    }
-
-    loadStarshipsInCart(arrayOfUrls)
-      .then((starships) => {
-        dispatchAction({type: "CartLoaded", value: starships});
-      })
-      .catch((err) => {
-        dispatchAction({type: "CartFailedToLoad", value: err});
-      })
-
-    }, [])
-
-  const getStarships = useCallback(() => {
-    dispatchAction({type: "CartLoading"});
-    loadCartToState();
-  }, [dispatchAction, loadCartToState]);
+  const handleDeleteButton = (starship: Starship, starshipIndex: number) => {
+    dispatch(deleteStarshipFromCart(starship, starshipIndex))
+  }
 
   useEffect(() => {
-    getStarships();
-
-  }, [getStarships]);
-
+    dispatch(loadCart());
+  }, []);
 
   return (
     <>
-      <Header ></Header>
-      <CartItemList/>
+      {dataState === DataState.LOADED && starships && (
+        <CartItemList onDelete={handleDeleteButton} starships={starships}/>
+      )}
+      {dataState === DataState.LOADING && (
+        <Grid container justifyContent="center" item xs={12}>
+          <CircularProgress />
+        </Grid>
+      )}
+      {dataState === DataState.FAILED && <Typography>{error}</Typography>}
     </>
   )
 }
